@@ -1,6 +1,6 @@
 # `dotfiles_macos`
 
-Dotfiles for MacOS because i know i'll be forced to use it at some point....
+I'm forced to use macos at work so here's the dotfiles,
 
 ## ✋ Steps before cloning
 
@@ -60,6 +60,16 @@ fi
 https://github.com/koekeishiya/yabai/wiki and https://www.josean.com/posts/yabai-setup
 
 > remember system protecitons must be disabled for full features
+
+### 5. Sketchy bar
+
+https://felixkratz.github.io/SketchyBar/setup
+
+for icons
+
+```sh
+brew install --cask font-sketchybar-app-font
+```
 
 ### Better system apps
 
