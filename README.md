@@ -84,3 +84,7 @@ brew install --cask font-sketchybar-app-font
 - Menu bar calendar: https://www.mowglii.com/itsycal/
 - Menu bar stats: https://github.com/exelban/stats
 - Menu bar todo: https://ticktick.com/?language=en_US
+
+### More settings...
+
+check [`NONSENSE.md`](./NONSENSE.md)
