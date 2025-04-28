@@ -2,6 +2,10 @@
 
 I'm forced to use macos at work so here's the dotfiles,
 
+![alt text](image.png)
+
+![alt text](image-1.png)
+
 ## ✋ Steps before cloning
 
 ### 0. Debloat MacOS
