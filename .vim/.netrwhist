@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/gitpaulo/.config/sketchybar'
+let g:netrw_dirhist_2='/Users/gitpaulo/.config/sketchybar/items'
+let g:netrw_dirhist_1='/Users/gitpaulo/.config/sketchybar'
+let g:netrw_dirhist_0='/Users/gitpaulo/.config/sketchybar/plugins'
+let g:netrw_dirhist_9='/Users/gitpaulo/.config/sketchybar'
+let g:netrw_dirhist_8='/Users/gitpaulo/.config'
+let g:netrw_dirhist_7='/Users/gitpaulo/.config/sketchybar'
+let g:netrw_dirhist_6='/Users/gitpaulo/.config/sketchybar/plugins'
+let g:netrw_dirhist_5='/Users/gitpaulo/.config/sketchybar'
+let g:netrw_dirhist_4='/Users/gitpaulo/.config'
