@@ -1,5 +1,7 @@
 # `dotfiles_macos`
 
+> Private debian dotfiles: https://github.com/GitPaulo/dotfiles
+
 I'm forced to use macos at work so here's the dotfiles,
 
 ![alt text](image.png)
