@@ -40,8 +40,8 @@ bind -x '"\C-r": __fzf_history__'
 source <(curl -sSL git.io/forgit)
 
 # export defaults
-export VISUAL="/usr/local/bin/vim"
-export EDITOR="vim"
+export VISUAL="/opt/homebrew/bin/nvim"
+export EDITOR="/opt/homebrew/bin/nvim"
 alias r="ranger"
 alias clipboard='pbcopy'
 
@@ -104,3 +104,7 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   exec tmux
 fi
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

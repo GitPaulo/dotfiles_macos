@@ -18,6 +18,7 @@ alt - i : yabai -m display --focus next
 # Floating & Maximizing
 shift + alt - t : yabai -m window --toggle float
 shift + alt - f : yabai -m window --toggle zoom-fullscreen
+shift + alt - q : yabai -m window --close
 shift + alt - c : yabai -m window --close
 shift + alt - m : yabai -m window --minimize
 shift + alt - n : yabai -m query --windows | jq -r 'map(select(.["is-minimized"] == true)) | last | .id' | xargs -I{} yabai -m window --focus {}

@@ -18,8 +18,8 @@ yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
-yabai -m config window_border                off          # (on | off)
-yabai -m config window_border_width          6
+yabai -m config window_border                on
+yabai -m config window_border_width          4
 yabai -m config active_window_border_color   0xff775759
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xffd75f5f
@@ -37,11 +37,11 @@ yabai -m config mouse_drop_action            stack
 # bsp or float (default: bsp)
 yabai -m config layout                       bsp
 ## Change how yabai looks
-yabai -m config top_padding                  14
-yabai -m config bottom_padding               14
-yabai -m config left_padding                 14
-yabai -m config right_padding                14
-yabai -m config window_gap                   16
+yabai -m config top_padding                  8
+yabai -m config bottom_padding               8
+yabai -m config left_padding                 8
+yabai -m config right_padding                8
+yabai -m config window_gap                   10
 
 # My custom space names for my 3 monitor setup. These names are used in some of my scripts.
 yabai -m space 1 --label one
