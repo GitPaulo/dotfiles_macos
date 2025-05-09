@@ -1,4 +1,4 @@
-## paulo's .bashrc
+# $ .bashrc (GitPaulo@Github)
 
 # readline
 bind 'set keyseq-timeout 20'
@@ -6,11 +6,24 @@ bind 'set keyseq-timeout 20'
 # Case-insensitive globbing (used in filename expansion)
 shopt -s nocaseglob
 
+# Case-insensitive tab completion
+bind 'set completion-ignore-case on'
+
 # Autocorrect typos in pathnames when using cd
 shopt -s cdspell
 
+# Auto-cd: just type a dirname to cd into it
+shopt -s autocd
+
 # Less annoying bell
 set bell-style none
+
+# Better pager & less flags
+export PAGER=less
+export LESS='-RFX' # -R raw control chars, -F quit if 1 screen, -X no init
+
+# reload helper
+alias reload='source ~/.bashrc && echo ".bashrc reloaded"'
 
 # history
 export HISTCONTROL=ignoredups:erasedups # no duplicate entries
@@ -82,11 +95,57 @@ bind 'set vi-ins-mode-string \1\e[6 q\2'
 bind 'set vi-cmd-mode-string \1\e[2 q\2'
 set_cursor_shape command
 
+# macos mv is annoying
+# Override mv to support case-only renames on macOS (case-insensitive FS)
+function mv() {
+  # Only intercept simple 2-argument calls, not flags or lots of files
+  if [[ $# -eq 2 && ! "$1" == -* && ! "$2" == -* ]]; then
+    src="$1"; dst="$2"
+    # Lowercase both paths (works in bash3 on macOS)
+    lc_src=$(printf "%s" "$src" | tr '[:upper:]' '[:lower:]')
+    lc_dst=$(printf "%s" "$dst" | tr '[:upper:]' '[:lower:]')
+    if [[ "$lc_src" == "$lc_dst" ]]; then
+      # Case-only rename: use a temporary name
+      tmp="${src}.$$.casefix"
+      command mv -v "$src" "$tmp" && command mv -v "$tmp" "$dst"
+      return $?
+    fi
+  fi
+  # Otherwise, just do the normal mv
+  command mv "$@"
+}
+
+# Force GNU utils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# mv change
+unalias mv 2>/dev/null
+mv() {
+  if [[ $# -eq 2 && ! "$1" == -* && ! "$2" == -* ]]; then
+    local src="$1" dst="$2" lc_src lc_dst tmp
+    lc_src=$(printf '%s' "$src" | tr '[:upper:]' '[:lower:]')
+    lc_dst=$(printf '%s' "$dst" | tr '[:upper:]' '[:lower:]')
+    if [[ "$lc_src" == "$lc_dst" ]]; then
+      tmp="${src}.$$.casefix"
+      command mv -vi "$src" "$tmp" && command mv -vi "$tmp" "$dst"
+      return $?
+    fi
+  fi
+  command mv -i "$@"
+}
+
 # Homebrew environment
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Starship prompt
-eval "$(starship init bash)"
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+fi
+
+# Zoxide:
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init bash)"
+fi
 
 # Minimal neofetch at login
 if command -v neofetch >/dev/null 2>&1; then
@@ -96,7 +155,7 @@ fi
 # activate fzf
 eval "$(fzf --bash)"
 
-# z for macos
+# activate z (zoxide)
 eval "$(zoxide init bash)"
 
 # lastly, always tmux
@@ -104,7 +163,25 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   exec tmux
 fi
 
+### Other
+
+# Docker & kubectl bash completion
+if command -v docker &>/dev/null; then
+  source <(docker completion bash)
+fi
+if command -v kubectl &>/dev/null; then
+  source <(kubectl completion bash)
+fi
+
+### MANAGED AREA
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/gitpaulo/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+
