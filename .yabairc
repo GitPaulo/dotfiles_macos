@@ -37,7 +37,7 @@ yabai -m config mouse_drop_action            stack
 # bsp or float (default: bsp)
 yabai -m config layout                       bsp
 ## Change how yabai looks
-yabai -m config top_padding                  8
+yabai -m config top_padding                  15
 yabai -m config bottom_padding               8
 yabai -m config left_padding                 8
 yabai -m config right_padding                8
