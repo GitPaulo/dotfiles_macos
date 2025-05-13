@@ -75,6 +75,14 @@ cmd + shift - 7 : yabai -m window --space 7
 cmd + shift - 8 : yabai -m window --space 8
 cmd + shift - 9 : yabai -m window --space 9
 
+# move current space one slot to the left
+cmd + shift - h : yabai -m space --move prev
+cmd + shift - left : yabai -m space --move prev
+
+# move current space one slot to the right
+cmd + shift - l : yabai -m space --move next
+cmd + shift - right : yabai -m space --move next
+
 ## Service Management (SHIFT + ALT)
 # Start/Stop/Restart Yabai
 ctrl + shift + alt - q : yabai --stop-service
