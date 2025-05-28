@@ -1,0 +1,1 @@
+/Users/gitpaulo/dotfiles_macos/.vim

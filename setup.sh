@@ -2,7 +2,7 @@
 
 DOTFILES_DIR=~/dotfiles_macos
 BACKUP_DIR=~/dotfiles_backup
-FILES=(.bash_profile .bashrc .skhdrc .yabairc .vimrc .vim .config)
+FILES=(.bash_profile .bashrc .skhdrc .yabairc .vimrc .vim .config .tmux.conf)
 
 echo "====> dotfiles_macos setup script!"
 mkdir -p $BACKUP_DIR
